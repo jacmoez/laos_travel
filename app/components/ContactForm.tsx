@@ -102,7 +102,7 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               className="w-full p-4 text-base border-2 border-gray-200 rounded-full focus:outline-none focus:border-[#ED6A02] focus:ring-2 focus:ring-[#ED6A02]/30 transition"
-              placeholder="John Doe"
+             
             />
           </div>
           <div className="mb-6">
@@ -116,7 +116,7 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               className="w-full p-4 text-base border-2 border-gray-200 rounded-full focus:outline-none focus:border-[#ED6A02] focus:ring-2 focus:ring-[#ED6A02]/30 transition"
-              placeholder="you@example.com"
+              
             />
           </div>
           <div className="mb-6">
@@ -130,7 +130,7 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               className="w-full p-4 text-base border-2 border-gray-200 rounded-full focus:outline-none focus:border-[#ED6A02] focus:ring-2 focus:ring-[#ED6A02]/30 transition"
-              placeholder="+856 20 12345678"
+              
             />
           </div>
           <div className="mb-6">
@@ -189,7 +189,7 @@ export default function ContactForm() {
               value={formData.message}
               onChange={handleChange}
               className="w-full p-4 text-base border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-[#ED6A02] focus:ring-2 focus:ring-[#ED6A02]/30 transition resize-y"
-              placeholder="Tell us about your travel plans or questions..."
+             
             ></textarea>
           </div>
           <button
