@@ -1,7 +1,19 @@
 // components/ContactForm.tsx
 "use client";
 import { useState, useRef, useEffect } from "react";
-import { FaUser, FaEnvelope, FaPhoneAlt, FaTag, FaCommentDots, FaPaperPlane, FaLock, FaChevronDown, FaPlane, FaGolfBall } from "react-icons/fa";
+import {
+  FaUser,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaTag,
+  FaCommentDots,
+  FaPaperPlane,
+  FaLock,
+  FaChevronDown,
+  FaPlane,
+  FaGolfBall,
+  FaEnvelopeOpenText,
+} from "react-icons/fa";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -27,15 +39,24 @@ export default function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const { name, email, phone, subject, message } = formData;
-    const mailtoLink = `mailto:bookings@dreamdestination.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:bookings@dreamdestination.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage: ${message}`
     )}`;
     window.location.href = mailtoLink;
-    alert(`Thank you ${name}! Your message has been opened in your email client. We'll get back to you shortly.`);
-    setFormData({ name: "", email: "", phone: "", subject: "Travel Package", message: "" });
+    alert(
+      `Thank you ${name}! Your message has been opened in your email client. We'll get back to you shortly.`
+    );
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      subject: "Travel Package",
+      message: "",
+    });
   };
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -47,8 +68,16 @@ export default function ContactForm() {
   }, []);
 
   const subjectOptions = [
-    { value: "Travel Package", label: "Travel Package", icon: <FaPlane className="mr-2 text-[#ED6A02]" /> },
-    { value: "Golf Package", label: "Golf Package", icon: <FaGolfBall className="mr-2 text-[#ED6A02]" /> },
+    {
+      value: "Travel Package",
+      label: "Travel Package",
+      icon: <FaPlane className="mr-2 text-[#ED6A02]" />,
+    },
+    {
+      value: "Golf Package",
+      label: "Golf Package",
+      icon: <FaGolfBall className="mr-2 text-[#ED6A02]" />,
+    },
   ];
 
   return (
@@ -56,7 +85,7 @@ export default function ContactForm() {
       <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10 border border-[#2E7D32]/20">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-[#e8f5e9] rounded-full mb-4">
-            <i className="fas fa-envelope-open-text text-4xl text-[#2E7D32]"></i>
+            <FaEnvelopeOpenText className="text-4xl text-[#2E7D32]" />
           </div>
           <h3 className="text-3xl md:text-4xl font-bold text-[#2E7D32]">Get in Touch</h3>
           <p className="text-gray-500 text-lg mt-2">We'd love to hear from you</p>
@@ -92,7 +121,8 @@ export default function ContactForm() {
           </div>
           <div className="mb-6">
             <label className="block font-semibold text-[#2E7D32] mb-2 text-base">
-              <FaPhoneAlt className="inline text-[#ED6A02] mr-2" /> Phone Number <span className="text-gray-400 font-normal">(optional)</span>
+              <FaPhoneAlt className="inline text-[#ED6A02] mr-2" /> Phone Number{" "}
+              <span className="text-gray-400 font-normal">(optional)</span>
             </label>
             <input
               type="tel"
@@ -114,10 +144,18 @@ export default function ContactForm() {
                 className="w-full p-4 text-base border-2 border-gray-200 rounded-full focus:outline-none focus:border-[#ED6A02] focus:ring-2 focus:ring-[#ED6A02]/30 transition bg-white flex items-center justify-between"
               >
                 <span className="flex items-center">
-                  {formData.subject === "Travel Package" ? <FaPlane className="mr-2 text-[#ED6A02]" /> : <FaGolfBall className="mr-2 text-[#ED6A02]" />}
+                  {formData.subject === "Travel Package" ? (
+                    <FaPlane className="mr-2 text-[#ED6A02]" />
+                  ) : (
+                    <FaGolfBall className="mr-2 text-[#ED6A02]" />
+                  )}
                   {formData.subject}
                 </span>
-                <FaChevronDown className={`text-gray-400 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`} />
+                <FaChevronDown
+                  className={`text-gray-400 transition-transform ${
+                    isDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
               {isDropdownOpen && (
                 <div className="absolute z-10 w-full mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-lg overflow-hidden">
@@ -127,7 +165,9 @@ export default function ContactForm() {
                       type="button"
                       onClick={() => selectSubject(option.value)}
                       className={`w-full px-4 py-3 text-left flex items-center transition hover:bg-[#e8f5e9] ${
-                        formData.subject === option.value ? "bg-[#e8f5e9] text-[#2E7D32] font-semibold" : "text-gray-700"
+                        formData.subject === option.value
+                          ? "bg-[#e8f5e9] text-[#2E7D32] font-semibold"
+                          : "text-gray-700"
                       }`}
                     >
                       {option.icon}

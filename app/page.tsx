@@ -1,3 +1,4 @@
+// app/page.tsx
 "use client";
 import { useState } from "react";
 import Header from "./components/Header";
@@ -77,8 +78,8 @@ export default function Home() {
       };
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#f0f7f0]" >
-      <Header />
+    <main className="min-h-screen flex flex-col bg-[#f0f7f0]">
+      <Header onBookNow={() => handleOpenBookingModal("General Inquiry")} />
       <HeroCarousel />
       <VideoSection />
       <PopularTrips onShowDetails={handleShowTripDetails} onBook={handleOpenBookingModal} />

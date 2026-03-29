@@ -131,6 +131,19 @@ export const popularGolfData: PopularGolfPackage[] = [
     desc: "2 championship rounds, professional caddie, plus free junior rental set and 1-hour lesson with pro.",
     priceTag: "2R + Pro Lesson",
     img: "https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg"
+  },{
+    title: "Family Golf Getaway",
+    duration: "2 Rounds + Junior Clinic",
+    desc: "2 rounds for adults + free junior clinic (ages 6-12). Family resort with pool, kids menu, and family tee times.",
+    priceTag: "2 Rounds + Child Clinic",
+    img: "https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg"
+  },
+  {
+    title: "Premium Golf & Family",
+    duration: "3 Rounds + Kids Camp",
+    desc: "3 rounds at top courses, 2-night luxury stay, supervised kids golf camp (4+ hours) and family spa.",
+    priceTag: "3 Rounds + Kids Camp",
+    img: "https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg"
   }
 ];
 
@@ -236,6 +249,23 @@ export const travelPackages: TravelPackage[] = [
 
 export const golfPackages: TravelPackage[] = [
   {
+    title: "LP Golf Getaway",
+    duration: "2 Rounds",
+    description: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation. Perfect for golf enthusiasts.",
+    image: "https://golfdigest.sports.sndimg.com/content/dam/images/golfdigest/fullset/2018/06/06/5b172fb47abc957b64518a7b_GettyImages-942686126.jpg"
+  },
+  {
+    title: "Premium Golf Experience",
+    duration: "3 Rounds",
+    description: "Premium golf experience with 3 rounds at top courses, luxury resort accommodation, spa treatment, and gourmet dining. All transfers included.",
+    image: "https://media.npr.org/assets/img/2023/03/01/gettyimages-1410422468_wide-f64095a661d8b05ad0433ef9da08b1f83dd23d24.jpg"
+  },
+  {
+    title: "Resort Golf Package",
+    duration: "2N + 2R",
+    description: "Combine luxury resort stay with 2 rounds of golf. Includes accommodation, breakfast, green fees, and club rental. Relax and play in style.",
+    image: "https://www.pgaresort.com/images/content/homepageclubslidersmallimg/palm-harbor---innisbrook-resort---golf---2024-folklore-films-_12-1-.jpg"
+  },{
     title: "LP Golf Getaway",
     duration: "2 Rounds",
     description: "Enjoy 2 rounds of golf at Luang Prabang Golf Club. Includes green fees, caddie, golf cart, and luxury accommodation. Perfect for golf enthusiasts.",
