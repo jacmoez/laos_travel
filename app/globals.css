@@ -1,21 +1,230 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .carousel-slide {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .carousel-height {
+    height: 65vh;
+    min-height: 420px;
+  }
+  .main-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 40;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  .main-carousel-arrow:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
+  }
+  .main-carousel-arrow-left {
+    left: 20px;
+  }
+  .main-carousel-arrow-right {
+    right: 20px;
+  }
+  @media (max-width: 768px) {
+    .main-carousel-arrow {
+      width: 36px;
+      height: 36px;
+    }
+    .main-carousel-arrow-left {
+      left: 10px;
+    }
+    .main-carousel-arrow-right {
+      right: 10px;
+    }
+  }
+
+  .popular-trips-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 1024px) {
+    .popular-trips-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .popular-trips-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .popular-trips-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .packages-grid-carousel {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 0.5rem 0.25rem 1rem 0.25rem;
+  }
+  .packages-grid-carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #2e7d32;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+    border: 1px solid #2e7d32;
+  }
+  .slider-arrow:hover {
+    background: #2e7d32;
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+  }
+  .slider-arrow-left {
+    left: -15px;
+  }
+  .slider-arrow-right {
+    right: -15px;
+  }
+
+  /* Golf place slider */
+  .place-image-slider {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: #1a2a1a;
+    flex-shrink: 0;
+  }
+  .slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .slider-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+  }
+  .slider-img {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 10;
+    font-size: 1rem;
+  }
+  .slider-btn:hover {
+    background: #ed6a02;
+    transform: translateY(-50%) scale(1.1);
+  }
+  .slider-btn-left {
+    left: 8px;
+  }
+  .slider-btn-right {
+    right: 8px;
+  }
+  .slider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 10;
+  }
+  .slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .slider-dot.active {
+    background: #ed6a02;
+    width: 20px;
+    border-radius: 4px;
+  }
+
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal.active {
+    display: flex;
+  }
+  .modal-content {
+    background: white;
+    border-radius: 2rem;
+    max-width: 550px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 2rem;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+  @keyframes modalSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
